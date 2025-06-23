@@ -1,0 +1,6 @@
+# Apache configuration for SPA routing
+# This file will be used if deployed on Apache servers
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QR,L]

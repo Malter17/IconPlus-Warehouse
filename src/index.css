@@ -1,0 +1,423 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Light mode (default) */
+:root {
+  --bg-primary: #f0f9ff;
+  --bg-secondary: #e0f2fe;
+  --bg-surface: rgba(255, 255, 255, 0.7);
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: rgba(255, 255, 255, 0.2);
+  --shadow-color: rgba(14, 165, 233, 0.3);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-surface: rgba(30, 41, 59, 0.7);
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --border-color: rgba(30, 41, 59, 0.2);
+    --shadow-color: rgba(14, 165, 233, 0.5);
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, var(--bg-primary), var(--bg-secondary));
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.glass-effect {
+  background: var(--bg-surface);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 15px var(--shadow-color);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive text utilities */
+@layer utilities {
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+  
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+  
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl;
+  }
+  
+  .text-responsive-3xl {
+    @apply text-3xl sm:text-4xl;
+  }
+}
+
+/* Responsive spacing utilities */
+@layer utilities {
+  .p-responsive {
+    @apply p-2 sm:p-4 lg:p-6;
+  }
+  
+  .px-responsive {
+    @apply px-2 sm:px-4 lg:px-6;
+  }
+  
+  .py-responsive {
+    @apply py-2 sm:py-4 lg:py-6;
+  }
+  
+  .m-responsive {
+    @apply m-2 sm:m-4 lg:m-6;
+  }
+  
+  .mx-responsive {
+    @apply mx-2 sm:mx-4 lg:mx-6;
+  }
+  
+  .my-responsive {
+    @apply my-2 sm:my-4 lg:my-6;
+  }
+  
+  .space-y-responsive > :not([hidden]) ~ :not([hidden]) {
+    @apply space-y-2 sm:space-y-4 lg:space-y-6;
+  }
+  
+  .space-x-responsive > :not([hidden]) ~ :not([hidden]) {
+    @apply space-x-2 sm:space-x-4 lg:space-x-6;
+  }
+}
+
+/* Responsive container utilities */
+@layer utilities {
+  .container-responsive {
+    @apply container mx-auto px-2 sm:px-4 lg:px-6 xl:px-8;
+  }
+  
+  .max-w-responsive {
+    @apply max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl;
+  }
+}
+
+/* Prevent text overflow and ensure readability */
+@layer utilities {
+  .text-ellipsis-responsive {
+    @apply truncate;
+    max-width: 100%;
+  }
+  
+  .break-words-responsive {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+}
+
+/* Dark mode specific styles */
+@media (prefers-color-scheme: dark) {
+  .bg-white {
+    @apply bg-slate-800 text-slate-100;
+  }
+  
+  .bg-gray-50 {
+    @apply bg-slate-700;
+  }
+  
+  .bg-gray-100 {
+    @apply bg-slate-600;
+  }
+  
+  .text-gray-900 {
+    @apply text-slate-100;
+  }
+  
+  .text-gray-800 {
+    @apply text-slate-200;
+  }
+  
+  .text-gray-700 {
+    @apply text-slate-300;
+  }
+  
+  .text-gray-600 {
+    @apply text-slate-400;
+  }
+  
+  .text-gray-500 {
+    @apply text-slate-500;
+  }
+  
+  .border-gray-300 {
+    @apply border-slate-600;
+  }
+  
+  .border-gray-200 {
+    @apply border-slate-700;
+  }
+  
+  .border-gray-100 {
+    @apply border-slate-800;
+  }
+  
+  .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+    @apply divide-slate-700;
+  }
+  
+  .divide-gray-100 > :not([hidden]) ~ :not([hidden]) {
+    @apply divide-slate-800;
+  }
+  
+  .hover\:bg-gray-50:hover {
+    @apply hover:bg-slate-700;
+  }
+  
+  .hover\:bg-gray-100:hover {
+    @apply hover:bg-slate-600;
+  }
+  
+  .hover\:bg-slate-100:hover {
+    @apply hover:bg-slate-700;
+  }
+  
+  /* Form inputs in dark mode */
+  input, textarea, select {
+    @apply dark:bg-slate-700 dark:border-slate-600 dark:text-slate-100 dark:placeholder-slate-400;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    @apply dark:ring-blue-400 dark:border-blue-400;
+  }
+  
+  /* Status badges adjustments for dark mode */
+  .bg-green-100 {
+    @apply dark:bg-green-900/30 dark:text-green-300;
+  }
+  
+  .bg-red-100 {
+    @apply dark:bg-red-900/30 dark:text-red-300;
+  }
+  
+  .bg-yellow-100 {
+    @apply dark:bg-yellow-900/30 dark:text-yellow-300;
+  }
+  
+  .bg-blue-100 {
+    @apply dark:bg-blue-900/30 dark:text-blue-300;
+  }
+  
+  .bg-purple-100 {
+    @apply dark:bg-purple-900/30 dark:text-purple-300;
+  }
+  
+  .bg-pink-100 {
+    @apply dark:bg-pink-900/30 dark:text-pink-300;
+  }
+  
+  .bg-orange-100 {
+    @apply dark:bg-orange-900/30 dark:text-orange-300;
+  }
+  
+  /* Alert backgrounds */
+  .bg-red-50 {
+    @apply dark:bg-red-900/20;
+  }
+  
+  .bg-green-50 {
+    @apply dark:bg-green-900/20;
+  }
+  
+  .bg-yellow-50 {
+    @apply dark:bg-yellow-900/20;
+  }
+  
+  .bg-blue-50 {
+    @apply dark:bg-blue-900/20;
+  }
+  
+  /* Text colors for alerts */
+  .text-red-700 {
+    @apply dark:text-red-300;
+  }
+  
+  .text-green-700 {
+    @apply dark:text-green-300;
+  }
+  
+  .text-yellow-700 {
+    @apply dark:text-yellow-300;
+  }
+  
+  .text-blue-700 {
+    @apply dark:text-blue-300;
+  }
+  
+  .text-yellow-800 {
+    @apply dark:text-yellow-200;
+  }
+  
+  .text-blue-800 {
+    @apply dark:text-blue-200;
+  }
+  
+  /* Border colors for alerts */
+  .border-red-200 {
+    @apply dark:border-red-800;
+  }
+  
+  .border-green-200 {
+    @apply dark:border-green-800;
+  }
+  
+  .border-yellow-200 {
+    @apply dark:border-yellow-800;
+  }
+  
+  .border-blue-200 {
+    @apply dark:border-blue-800;
+  }
+}
+
+/* Responsive table improvements */
+@layer utilities {
+  .table-responsive {
+    @apply overflow-x-auto;
+  }
+  
+  .table-responsive table {
+    @apply min-w-full;
+  }
+  
+  .table-responsive th,
+  .table-responsive td {
+    @apply whitespace-nowrap;
+  }
+  
+  @screen sm {
+    .table-responsive th,
+    .table-responsive td {
+      @apply whitespace-normal;
+    }
+  }
+}
+
+/* Mobile-first responsive design helpers */
+@layer utilities {
+  .mobile-first-flex {
+    @apply flex flex-col space-y-2;
+  }
+  
+  @screen sm {
+    .mobile-first-flex {
+      @apply flex-row space-y-0 space-x-4;
+    }
+  }
+  
+  .mobile-first-grid {
+    @apply grid grid-cols-1 gap-2;
+  }
+  
+  @screen sm {
+    .mobile-first-grid {
+      @apply grid-cols-2 gap-4;
+    }
+  }
+  
+  @screen lg {
+    .mobile-first-grid {
+      @apply grid-cols-3 gap-6;
+    }
+  }
+}
+
+/* Ensure proper touch targets on mobile */
+@layer utilities {
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  .touch-target-sm {
+    @apply min-h-[36px] min-w-[36px];
+  }
+}
+
+/* Responsive font sizes for better readability */
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 376px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Improve scrolling on mobile */
+@layer utilities {
+  .scroll-smooth-mobile {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Prevent zoom on input focus on iOS */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}

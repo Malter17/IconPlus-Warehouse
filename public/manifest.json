@@ -1,0 +1,88 @@
+{
+  "name": "PLN Icon Plus Warehouse Management System",
+  "short_name": "PLN Warehouse",
+  "description": "Manage your warehouse inventory efficiently with PLN Icon Plus Warehouse Management System",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0284c7",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/wpid-logo_pln.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/wpid-logo_pln.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-pln-plus (1).png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-pln-plus (1).png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/logo-pln-plus (1).png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "PLN Warehouse Dashboard"
+    },
+    {
+      "src": "/logo-pln-plus (1).png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "PLN Warehouse Mobile"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "View warehouse dashboard",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/wpid-logo_pln.jpg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Items",
+      "short_name": "Items",
+      "description": "View all items",
+      "url": "/items",
+      "icons": [
+        {
+          "src": "/wpid-logo_pln.jpg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}
